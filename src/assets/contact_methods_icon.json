@@ -1,0 +1,13 @@
+[
+	{
+		"id": 0,
+		"name": "Follow us:",
+		"icons": {
+			"icon1": "facebook-app-symbol.png",
+        	"icon2": "github-icon.png",
+        	"icon3": "linkedin.png",
+        	"icon4": "black-instagram-icon.png",
+        	"icon5": "twitter.png"
+		}
+	}
+]

@@ -1,0 +1,17 @@
+[
+	{
+		"id": 0,
+		"title": "Adaptability",
+		"description": "Regardless of the platform, your app will be structured for compatibility with any modern device large or small. It will be just as usable on a mobile device as it is on a desktop computer. No user will be left behind!"
+	},
+	{
+		"id": 1,
+		"title": "Pay less, wait less",
+		"description": "With two developers working on your app simultaneously, it will be ready before you know it! This extra productivity doesn't come at a premium though, so you'll be enjoying an earlier release without additional expenses."
+	},
+    {
+		"id": 2,
+		"title": "A New Look",
+		"description": "We don't just make new apps from scratch, we will also update your current app to be more relevant and accessible. No matter how old your app may be, we will have it ready to be enjoyed by a new audience!"
+	}
+]

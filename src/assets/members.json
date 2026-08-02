@@ -1,0 +1,20 @@
+[
+	{
+		"id": 0,
+		"image": "alisdair.jpg",
+		"name": "Alisdair Page",
+		"description": "Co-founder, Designer and Full-stack Developer"
+	},
+	{
+		"id": 1,
+		"image": "oliver.jpg",
+		"name": "Oliver Page",
+		"description": "Founder, Designer and Full-stack Developer"
+	},
+	{
+		"id": 2,
+		"image": "bag.jpg",
+		"name": "Pudding Pot",
+		"description": "True Leader, Chair Thief and Prawn Muncher"
+	}
+]
