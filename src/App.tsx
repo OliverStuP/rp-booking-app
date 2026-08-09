@@ -1,6 +1,6 @@
 //import './App.css';
 import React from 'react';
-import { StyleSheet, SafeAreaView, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, Dimensions, ScrollView, View, Text } from 'react-native';
 import RPHeader from './components/SPBHeader.tsx';
 import RPFooter from './components/RPFooter.tsx';
 import Time from './screens/Time.tsx';
@@ -17,7 +17,7 @@ const App = () => {
       <RPHeader />
       <ScrollView tabIndex={0}>
         {stage == "date" &&
-          <Date />
+          <Date loadPeople={() => setStage("people")}/>
         }
         {stage == "people" &&
           <People />
@@ -26,7 +26,12 @@ const App = () => {
           <Time loadForm={() => setStage("form")}/>
         }
         {stage == "form" &&
-          <Form />
+          <Form loadSuccess={() => setStage("success")}/>
+        }
+        {stage == "success" &&
+          <View>
+            <Text>Your Winner</Text>
+          </View>
         }
       </ScrollView>
       <RPFooter homePress={() => setStage("landing")} contactPress={() => setStage("contact")} aboutPress={() => setStage("about")} />
