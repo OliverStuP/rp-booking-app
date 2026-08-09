@@ -1,17 +1,29 @@
-import React from 'react';
+import {useState} from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
-import Example from '../components/Example.tsx';
-import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
-import memberData from '../assets/members.json';
+import {Picker} from '@react-native-picker/picker';
 
 export default function Form() {
+  // Initialise state
+  const [selectedTitle, setSelectedTitle] = useState();
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
-          <Text>Time slot</Text>
+          <View tabIndex={0} style={styles.headingCont}>
+            <Text style={styles.heading}>Details</Text>
+          </View>
           <View tabIndex={0} style={styles.aboutSection}>
-            <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
+            <View tabIndex={0}>
+              <Picker
+                aria-label='Honorific prefix input'
+                style={styles.field}
+                selectedValue={selectedTitle}
+                onValueChange={(itemValue) =>
+                  setSelectedTitle(itemValue)
+                }>
+                <Picker.Item label="Mr" value="mr" />
+                <Picker.Item label="Ms" value="ms" />
+                <Picker.Item label="Mx" value="mx" />
+              </Picker>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
               <View tabIndex={0} style={styles.button}>
@@ -79,10 +91,29 @@ const styles = StyleSheet.create({
   aboutCont: {
     flexDirection: 'column',
   },
+  headingCont: {
+    padding: 5,
+    alignItems: 'center',
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#355872',
+    fontFamily: "Helvetica",
+  },
   aboutSection: {
     flexDirection: 'column',
     alignItems: 'center',
     padding: 5,
+  },
+  field: {
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    marginTop: '1%',
+    marginBottom: '1%',
+    padding: 5,
+    width: 185,
   },
   subHeading: {
     padding: 5,
