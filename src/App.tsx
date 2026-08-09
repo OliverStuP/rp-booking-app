@@ -23,7 +23,7 @@ const App = () => {
           <People />
         }
         {stage == "time" &&
-          <Time />
+          <Time loadForm={() => setStage("form")}/>
         }
         {stage == "form" &&
           <Form />

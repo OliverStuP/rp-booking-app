@@ -1,11 +1,13 @@
-import React from 'react';
-import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
-import Example from '../components/Example.tsx';
-import Member from '../components/Member.tsx';
+import { Text, View, StyleSheet, Dimensions, Button } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
-import memberData from '../assets/members.json';
+import lunchDate from "../../src/lunch.json"
+import dinnerDate from "../../src/dinner.json"
 
-export default function Time() {
+type TimeProps = {
+  loadForm: () => void;
+}
+
+export default function Time({loadForm}: TimeProps) {
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text>Time slot</Text>
@@ -14,61 +16,31 @@ export default function Time() {
               <Text style={styles.subHeadText}>Lunch</Text>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
+              {
+                lunchDate.map((slot) => {
+                  return(
+                    <View tabIndex={0} style={styles.button}>
+                      <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                    </View>
+                  )
+                })
+              }
             </View>
           </View>
           <View tabIndex={0} style={styles.aboutSection}>
             <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
+              <Text style={styles.subHeadText}>Dinner</Text>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
+              {
+                dinnerDate.map((slot) => {
+                  return(
+                    <View tabIndex={0} style={styles.button}>
+                      <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                    </View>
+                  )
+                })
+              }
             </View>
           </View>
         </View>
