@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { StyleSheet, SafeAreaView, Dimensions, ScrollView } from 'react-native';
-import RPHeader from './components/RPHeader.tsx';
+import RPHeader from './components/SPBHeader.tsx';
 import RPFooter from './components/RPFooter.tsx';
 import Landing from './screens/Landing.tsx';
 import RPContact from './screens/RPContact.tsx';

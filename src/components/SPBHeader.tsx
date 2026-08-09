@@ -6,7 +6,7 @@ export default function RPHeader() {
     return (
         <View tabIndex={0} role='banner'>
             <header style={styles.heading}>
-               <Text style={styles.headText}>Right Page</Text>
+               <Text style={styles.headText}>Salt and Pepper - Reservation Assistant</Text>
             </header>
         </View>
     );
