@@ -1,7 +1,7 @@
 //import './App.css';
 import React from 'react';
 import { StyleSheet, SafeAreaView, Dimensions, ScrollView, View, Text } from 'react-native';
-import RPHeader from './components/SPBHeader.tsx';
+import SPBHeader from './components/SPBHeader.tsx';
 import RPFooter from './components/RPFooter.tsx';
 import Time from './screens/Time.tsx';
 import Date from './screens/Date.tsx';
@@ -11,13 +11,15 @@ import Form from './screens/Form.tsx';
 const App = () => {
 
   const [stage, setStage] = React.useState("date");
+  const [lastStage, setLastStage] = React.useState("");
+  const [returnVis, setReturnVis] = React.useState(false);
 
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
-      <RPHeader />
+      <SPBHeader dest={() => setStage(lastStage)} buttonCheck={returnVis} />
       <ScrollView tabIndex={0}>
         {stage == "date" &&
-          <Date loadPeople={() => setStage("people")}/>
+          <Date loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(false);}}/>
         }
         {stage == "people" &&
           <People />

@@ -1,12 +1,20 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, Dimensions } from 'react-native';
+import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 
-export default function RPHeader() {
+type HeadProps = {
+  dest: () => void;
+  buttonCheck: boolean;
+}
+
+export default function SPBHeader({dest, buttonCheck}: HeadProps) {
     return (
         <View tabIndex={0} role='banner'>
             <header style={styles.heading}>
                <Text style={styles.headText}>Salt and Pepper - Reservation Assistant</Text>
+               {buttonCheck && 
+                <Button onPress={dest} title="Return"/>
+               }
             </header>
         </View>
     );
