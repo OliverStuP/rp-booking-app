@@ -1,20 +1,32 @@
-import './App.css';
+//import './App.css';
 import React from 'react';
 import { StyleSheet, SafeAreaView, Dimensions, ScrollView } from 'react-native';
 import RPHeader from './components/SPBHeader.tsx';
 import RPFooter from './components/RPFooter.tsx';
 import Time from './screens/Time.tsx';
+import Date from './screens/Date.tsx';
+import People from './screens/People.tsx';
+import Form from './screens/Form.tsx';
 
 const App = () => {
 
-  const [stage, setStage] = React.useState("time");
+  const [stage, setStage] = React.useState("date");
 
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
       <RPHeader />
       <ScrollView tabIndex={0}>
+        {stage == "date" &&
+          <Date />
+        }
+        {stage == "people" &&
+          <People />
+        }
         {stage == "time" &&
           <Time />
+        }
+        {stage == "form" &&
+          <Form />
         }
       </ScrollView>
       <RPFooter homePress={() => setStage("landing")} contactPress={() => setStage("contact")} aboutPress={() => setStage("about")} />
