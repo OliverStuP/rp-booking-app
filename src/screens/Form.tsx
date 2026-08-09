@@ -5,7 +5,7 @@ import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import memberData from '../assets/members.json';
 
-export default function Time() {
+export default function Form() {
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text>Time slot</Text>
