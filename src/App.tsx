@@ -50,7 +50,7 @@ const App = () => {
           <Time setTimeState={setTimeState} loadForm={() => setStage("form")}/>
         }
         {stage == "form" &&
-          <Form time={time} loadSuccess={() => setStage("success")}/>
+          <Form date={date} time={time} loadSuccess={() => setStage("success")}/>
         }
         {stage == "success" &&
           <View>

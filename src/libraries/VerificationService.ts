@@ -1,8 +1,14 @@
+import { DateType } from 'react-native-ui-datepicker';
+
 // Initialise API base
 const apibase = "/";
 
 // Verify submission
-export async function verify(time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
+export async function verify(date:DateType, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
+    if (date == undefined) {
+        alert("Invalid date.");
+        return;
+    }
     if (time == "") {
         alert("Invalid time.");
         return;
@@ -25,6 +31,7 @@ export async function verify(time:string, email:string, selectedtitle:string, fi
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            "date":date,
             "time":time,
             "email":email,
             "title":selectedtitle,

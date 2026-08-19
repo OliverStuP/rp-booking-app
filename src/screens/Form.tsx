@@ -5,14 +5,16 @@ import {Picker} from '@react-native-picker/picker';
 import * as EmailValidator from 'email-validator';
 import { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { verify } from '../libraries/VerificationService.ts';
+import { DateType } from 'react-native-ui-datepicker';
 
 type FormProps = {
+  date: DateType;
   time: string;
   loadSuccess: () => void;
 }
 
 
-export default function Form({time, loadSuccess}: FormProps) {
+export default function Form({date, time, loadSuccess}: FormProps) {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState<string>();
   const [firstname, setFirstName] = useState<string>();
@@ -36,7 +38,7 @@ export default function Form({time, loadSuccess}: FormProps) {
       alert("Phone number is invalid.");
       return;
     }
-    verify(time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
+    verify(date, time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
   }
 
   return (

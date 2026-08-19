@@ -15,6 +15,7 @@ app.post(base + "submit", (req, res) => {
     "Title": req.body.title,
     "First Name": req.body.firstname,
     "Last Name": req.body.lastname,
+    "Date": req.body.date,
     "Time": req.body.time,
     "Phone Number": req.body.phone
   });
