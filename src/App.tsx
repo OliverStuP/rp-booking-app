@@ -20,15 +20,24 @@ const App = () => {
     setTime(time);
   }
 
+  function visControl(stage:string) {
+    if (stage == "date") {
+      setReturnVis(false);
+    } 
+    else {
+      setReturnVis(true);
+    }
+  }
+
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
-      <SPBHeader dest={() => setStage(lastStage)} buttonCheck={returnVis} />
+      <SPBHeader dest={() => {visControl(lastStage); setStage(lastStage)}} buttonCheck={returnVis} />
       <ScrollView tabIndex={0}>
         {stage == "date" &&
-          <BookDate loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(false);}}/>
+          <BookDate loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(true);}}/>
         }
         {stage == "people" &&
-          <People />
+          <People loadTime={() => {setStage("time"); setLastStage("people"); setReturnVis(true);}}/>
         }
         {stage == "time" &&
           <Time setTimeState={setTimeState} loadForm={() => setStage("form")}/>

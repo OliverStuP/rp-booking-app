@@ -5,7 +5,11 @@ import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import memberData from '../assets/members.json';
 
-export default function People() {
+type PeopleProps = {
+  loadTime: () => void;
+}
+
+export default function People({loadTime}: PeopleProps) {
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text>Time slot</Text>

@@ -25,8 +25,14 @@ export default function BookDate({loadPeople}: DateProps) {
             <DateTimePicker
               mode="single"
               date={selected}
-              onChange={({ date }) =>  setSelected(date)}
+              onChange={({ date }) =>  {setSelected(date); loadPeople();}}
               minDate={today}
+              styles={{
+                today: { borderColor: 'blue', borderWidth: 1 },
+                selected: { backgroundColor: 'blue' },
+                selected_label: { color: 'white' },
+                disabled: {opacity: 0.5},
+              }}
             />
           </View>
         </View>
