@@ -7,6 +7,7 @@ import Time from './screens/Time.tsx';
 import BookDate from './screens/Date.tsx';
 import People from './screens/People.tsx';
 import Form from './screens/Form.tsx';
+import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-datepicker';
 
 const App = () => {
   // Initialise state
@@ -14,10 +15,16 @@ const App = () => {
   const [lastStage, setLastStage] = React.useState("");
   const [returnVis, setReturnVis] = React.useState(false);
   const [time, setTime] = React.useState("");
+  const [date, setDate] = React.useState<DateType>();
 
   // Time state handler
   function setTimeState(time:string) {
     setTime(time);
+  }
+
+  // Date state handler
+  function setDateState(date:DateType) {
+    setDate(date);
   }
 
   function visControl(stage:string) {
@@ -34,10 +41,10 @@ const App = () => {
       <SPBHeader dest={() => {visControl(lastStage); setStage(lastStage)}} buttonCheck={returnVis} />
       <ScrollView tabIndex={0}>
         {stage == "date" &&
-          <BookDate loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(true);}}/>
+          <BookDate setDateState={setDateState} loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(true);}}/>
         }
         {stage == "people" &&
-          <People loadTime={() => {setStage("time"); setLastStage("people"); setReturnVis(true);}}/>
+          <People loadTime={() => {setStage("time"); setLastStage("people")}}/>
         }
         {stage == "time" &&
           <Time setTimeState={setTimeState} loadForm={() => setStage("form")}/>
