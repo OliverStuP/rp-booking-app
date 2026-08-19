@@ -7,11 +7,12 @@ import Time from './screens/Time.tsx';
 import BookDate from './screens/Date.tsx';
 import People from './screens/People.tsx';
 import Form from './screens/Form.tsx';
+import Success from './screens/Success.tsx';
 import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-datepicker';
 
 const App = () => {
   // Initialise state
-  const [stage, setStage] = React.useState("date");
+  const [stage, setStage] = React.useState("success");
   const [lastStage, setLastStage] = React.useState("");
   const [returnVis, setReturnVis] = React.useState(false);
   const [time, setTime] = React.useState("");
@@ -53,9 +54,7 @@ const App = () => {
           <Form date={date} time={time} loadSuccess={() => setStage("success")}/>
         }
         {stage == "success" &&
-          <View>
-            <Text>Your Winner</Text>
-          </View>
+          <Success loadDate={() => setStage("date")}/>
         }
       </ScrollView>
       <RPFooter homePress={() => setStage("landing")} contactPress={() => setStage("contact")} aboutPress={() => setStage("about")} />
