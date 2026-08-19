@@ -9,10 +9,11 @@ import People from './screens/People.tsx';
 import Form from './screens/Form.tsx';
 
 const App = () => {
-
+  // Initialise state
   const [stage, setStage] = React.useState("date");
   const [lastStage, setLastStage] = React.useState("");
   const [returnVis, setReturnVis] = React.useState(false);
+  const [time, setTime] = React.useState("");
 
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>

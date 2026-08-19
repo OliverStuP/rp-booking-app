@@ -4,6 +4,7 @@ import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import {Picker} from '@react-native-picker/picker';
 import * as EmailValidator from 'email-validator';
 import { isPossiblePhoneNumber } from 'react-phone-number-input'
+import { verify } from '../libraries/VerificationService.ts';
 
 
 export default function Form() {
@@ -29,6 +30,7 @@ export default function Form() {
       alert("Phone number is invalid.");
       return;
     }
+    verify;
   }
 
   return (

@@ -8,6 +8,11 @@ type TimeProps = {
 }
 
 export default function Time({loadForm}: TimeProps) {
+  // Store time and load next stage
+  function handleTime(time:string) {
+    
+    loadForm();
+  }
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <View tabIndex={0} style={styles.headingCont}>
@@ -23,7 +28,7 @@ export default function Time({loadForm}: TimeProps) {
                   if (slot.id < 4) {
                      return(
                       <View tabIndex={0} style={styles.button}>
-                        <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                        <Button color='#355872' title={slot.time} onPress={() => handleTime(slot.time)}/>
                       </View>
                     )
                   }
@@ -36,7 +41,7 @@ export default function Time({loadForm}: TimeProps) {
                   if (slot.id > 3) {
                      return(
                       <View tabIndex={0} style={styles.button}>
-                        <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                        <Button color='#355872' title={slot.time} onPress={() => handleTime(slot.time)}/>
                       </View>
                     )
                   }
@@ -54,7 +59,7 @@ export default function Time({loadForm}: TimeProps) {
                   if (slot.id < 4) {
                      return(
                       <View tabIndex={0} style={styles.button}>
-                        <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                        <Button color='#355872' title={slot.time} onPress={() => handleTime(slot.time)}/>
                       </View>
                     )
                   }
@@ -67,7 +72,7 @@ export default function Time({loadForm}: TimeProps) {
                   if (slot.id > 3) {
                      return(
                       <View tabIndex={0} style={styles.button}>
-                        <Button color='#355872' title={slot.time} onPress={loadForm}/>
+                        <Button color='#355872' title={slot.time} onPress={() => handleTime(slot.time)}/>
                       </View>
                     )
                   }
