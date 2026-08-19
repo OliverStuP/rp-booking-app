@@ -13,6 +13,24 @@ export default function Form() {
   const [lastname, setLastName] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [phone, setPhone] = useState<string>();
+  const prefix = "+33";
+  // Check form fields before verification
+  const check = () => {
+    if (!email || !firstname || !lastname || !phone) {
+      alert("Mandatory fields have not been filled.");
+      return;
+    }
+    if (!EmailValidator.validate(email)) {
+      alert("Email address is invalid.");
+      return;
+    }
+    const submittedNum = prefix + phone;
+    if (!isPossiblePhoneNumber(submittedNum)) {
+      alert("Phone number is invalid.");
+      return;
+    }
+  }
+
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <View tabIndex={0} style={styles.headingCont}>
@@ -57,6 +75,7 @@ export default function Form() {
               />
             </View>
             <View tabIndex={0}>
+              <Text>{prefix}</Text>
               <TextInput
                 aria-label='Telephone number input'
                 value={phone}
@@ -66,7 +85,7 @@ export default function Form() {
             </View>
           </View>
           <View tabIndex={0}>
-            <Button color='#355872' title={"Submit"} onPress={()=>{}}/>
+            <Button color='#355872' title={"Submit"} onPress={check}/>
           </View>
         </View>
   )
