@@ -2,20 +2,20 @@
 const apibase = "/";
 
 // Verify submission
-export async function verify(time:string, email:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
-    if (time != "") {
+export async function verify(time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
+    if (time == "") {
         alert("Invalid time.");
         return;
     }
-    if (email != "") {
+    if (email == "") {
         alert("Invalid email.");
         return;
     }
-    if (firstname != "" && lastname != "") {
+    if (firstname == "" && lastname == "") {
         alert("Invalid name.");
         return;
     }
-    if (phone != "") {
+    if (phone == "") {
         alert("Invalid phone.");
         return;
     }
@@ -27,6 +27,7 @@ export async function verify(time:string, email:string, firstname:string, lastna
         body: JSON.stringify({
             "time":time,
             "email":email,
+            "title":selectedtitle,
             "firstname":firstname,
             "lastname":lastname,
             "phone":phone

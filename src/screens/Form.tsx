@@ -14,16 +14,16 @@ type FormProps = {
 
 export default function Form({time, loadSuccess}: FormProps) {
   // Initialise state
-  const [selectedTitle, setSelectedTitle] = useState();
+  const [selectedTitle, setSelectedTitle] = useState<string>();
   const [firstname, setFirstName] = useState<string>();
   const [lastname, setLastName] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [phone, setPhone] = useState<string>();
   const prefix = "+33";
-  
+
   // Check form fields before verification
   const check = () => {
-    if (!email || !firstname || !lastname || !phone) {
+    if (!email || !selectedTitle || !firstname || !lastname || !phone) {
       alert("Mandatory fields have not been filled.");
       return;
     }
@@ -36,7 +36,7 @@ export default function Form({time, loadSuccess}: FormProps) {
       alert("Phone number is invalid.");
       return;
     }
-    verify(time, email, firstname, lastname, phone, loadSuccess);
+    verify(time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
   }
 
   return (
