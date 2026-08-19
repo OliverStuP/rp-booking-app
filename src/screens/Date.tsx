@@ -12,10 +12,9 @@ type DateProps = {
 export default function Date({loadPeople}: DateProps) {
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
-          <Text>Time slot</Text>
           <View tabIndex={0} style={styles.aboutSection}>
             <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
+              <Text style={styles.subHeadText}>Choose a day</Text>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
               <View tabIndex={0} style={styles.button}>
