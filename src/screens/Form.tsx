@@ -1,11 +1,18 @@
 import {useState} from 'react';
-import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
+import { Text, View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import {Picker} from '@react-native-picker/picker';
+import * as EmailValidator from 'email-validator';
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
+
 
 export default function Form() {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState();
+  const [firstname, setFirstName] = useState<string>();
+  const [lastname, setLastName] = useState<string>();
+  const [email, setEmail] = useState<string>();
+  const [phone, setPhone] = useState<string>();
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <View tabIndex={0} style={styles.headingCont}>
@@ -25,63 +32,41 @@ export default function Form() {
                 <Picker.Item label="Mx" value="mx" />
               </Picker>
             </View>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
+            <View tabIndex={0}>
+              <TextInput
+                aria-label='Given name input'
+                value={firstname}
+                placeholder="First name*"
+                onChangeText={setFirstName}
+              />
+            </View>
+            <View tabIndex={0}>
+              <TextInput
+                aria-label='Family name input'
+                value={lastname}
+                placeholder="Last name*"
+                onChangeText={setLastName}
+              />
+            </View>
+            <View tabIndex={0}>
+              <TextInput
+                aria-label='Email address input'
+                value={email}
+                placeholder="Email address*"
+                onChangeText={setEmail}
+              />
+            </View>
+            <View tabIndex={0}>
+              <TextInput
+                aria-label='Telephone number input'
+                value={phone}
+                onChangeText={setPhone}
+                placeholder="Phone*"
+              />
             </View>
           </View>
-          <View tabIndex={0} style={styles.aboutSection}>
-            <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
-            </View>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
-            </View>
+          <View tabIndex={0}>
+            <Button color='#355872' title={"Submit"} onPress={()=>{}}/>
           </View>
         </View>
   )
