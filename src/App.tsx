@@ -12,7 +12,7 @@ import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-date
 
 const App = () => {
   // Initialise state
-  const [stage, setStage] = React.useState("success");
+  const [stage, setStage] = React.useState("date");
   const [lastStage, setLastStage] = React.useState("");
   const [returnVis, setReturnVis] = React.useState(false);
   const [time, setTime] = React.useState("");
