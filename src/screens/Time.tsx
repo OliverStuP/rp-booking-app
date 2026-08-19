@@ -4,13 +4,14 @@ import lunchDate from "../../src/lunch.json"
 import dinnerDate from "../../src/dinner.json"
 
 type TimeProps = {
+  setTimeState: (time:string) => void; 
   loadForm: () => void;
 }
 
-export default function Time({loadForm}: TimeProps) {
+export default function Time({setTimeState, loadForm}: TimeProps) {
   // Store time and load next stage
   function handleTime(time:string) {
-    
+    setTimeState(time);
     loadForm();
   }
   return (

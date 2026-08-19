@@ -15,6 +15,11 @@ const App = () => {
   const [returnVis, setReturnVis] = React.useState(false);
   const [time, setTime] = React.useState("");
 
+  // Time state handler
+  function setTimeState(time:string) {
+    setTime(time);
+  }
+
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
       <SPBHeader dest={() => setStage(lastStage)} buttonCheck={returnVis} />
@@ -26,10 +31,10 @@ const App = () => {
           <People />
         }
         {stage == "time" &&
-          <Time loadForm={() => setStage("form")}/>
+          <Time setTimeState={setTimeState} loadForm={() => setStage("form")}/>
         }
         {stage == "form" &&
-          <Form loadSuccess={() => setStage("success")}/>
+          <Form time={time} loadSuccess={() => setStage("success")}/>
         }
         {stage == "success" &&
           <View>

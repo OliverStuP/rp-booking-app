@@ -6,8 +6,13 @@ import * as EmailValidator from 'email-validator';
 import { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { verify } from '../libraries/VerificationService.ts';
 
+type FormProps = {
+  time: string;
+  loadSuccess: () => void;
+}
 
-export default function Form() {
+
+export default function Form({time, loadSuccess}: FormProps) {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState();
   const [firstname, setFirstName] = useState<string>();
@@ -15,6 +20,7 @@ export default function Form() {
   const [email, setEmail] = useState<string>();
   const [phone, setPhone] = useState<string>();
   const prefix = "+33";
+  
   // Check form fields before verification
   const check = () => {
     if (!email || !firstname || !lastname || !phone) {
@@ -30,7 +36,7 @@ export default function Form() {
       alert("Phone number is invalid.");
       return;
     }
-    verify;
+    verify(time, email, firstname, lastname, phone, loadSuccess);
   }
 
   return (
