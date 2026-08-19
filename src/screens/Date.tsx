@@ -4,17 +4,22 @@ import Example from '../components/Example.tsx';
 import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import memberData from '../assets/members.json';
-import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-datepicker';
+import DateTimePicker, { DateType } from 'react-native-ui-datepicker';
 
 type DateProps = {
+  setDateState: (date:DateType) => void; 
   loadPeople: () => void;
 }
 
-export default function BookDate({loadPeople}: DateProps) { 
+export default function BookDate({setDateState, loadPeople}: DateProps) { 
   let today = new Date();
-
-  const defaultStyles = useDefaultStyles();
   const [selected, setSelected] = useState<DateType>();
+
+  // Store date and load next stage
+  function handleDate(date:DateType) {
+    setDateState(date);
+    loadPeople();
+  }
 
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
@@ -25,7 +30,7 @@ export default function BookDate({loadPeople}: DateProps) {
             <DateTimePicker
               mode="single"
               date={selected}
-              onChange={({ date }) =>  {setSelected(date); loadPeople();}}
+              onChange={({ date }) =>  {setSelected(date); handleDate(date);}}
               minDate={today}
               styles={{
                 today: { borderColor: 'blue', borderWidth: 1 },
