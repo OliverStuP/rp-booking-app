@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView, Dimensions, ScrollView, View, Text } from 're
 import SPBHeader from './components/SPBHeader.tsx';
 import RPFooter from './components/RPFooter.tsx';
 import Time from './screens/Time.tsx';
-import Date from './screens/Date.tsx';
+import BookDate from './screens/Date.tsx';
 import People from './screens/People.tsx';
 import Form from './screens/Form.tsx';
 
@@ -20,7 +20,7 @@ const App = () => {
       <SPBHeader dest={() => setStage(lastStage)} buttonCheck={returnVis} />
       <ScrollView tabIndex={0}>
         {stage == "date" &&
-          <Date loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(false);}}/>
+          <BookDate loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(false);}}/>
         }
         {stage == "people" &&
           <People />

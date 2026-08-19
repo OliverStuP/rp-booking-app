@@ -1,78 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
 import Example from '../components/Example.tsx';
 import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import memberData from '../assets/members.json';
+import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-datepicker';
 
 type DateProps = {
   loadPeople: () => void;
 }
 
-export default function Date({loadPeople}: DateProps) {
+export default function BookDate({loadPeople}: DateProps) { 
+  let today = new Date();
+
+  const defaultStyles = useDefaultStyles();
+  const [selected, setSelected] = useState<DateType>();
+
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <View tabIndex={0} style={styles.aboutSection}>
             <View tabIndex={0} style={styles.subHeading}>
               <Text style={styles.subHeadText}>Choose a day</Text>
             </View>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
-            </View>
-          </View>
-          <View tabIndex={0} style={styles.aboutSection}>
-            <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
-            </View>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
-            </View>
+            <DateTimePicker
+              mode="single"
+              date={selected}
+              onChange={({ date }) =>  setSelected(date)}
+              minDate={today}
+            />
           </View>
         </View>
   )
