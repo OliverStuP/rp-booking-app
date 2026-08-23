@@ -17,6 +17,7 @@ const App = () => {
   const [returnVis, setReturnVis] = React.useState(false);
   const [time, setTime] = React.useState("");
   const [date, setDate] = React.useState<DateType>();
+  const [people, setPeople] = React.useState(1);
 
   // Time state handler
   function setTimeState(time:string) {
@@ -26,6 +27,11 @@ const App = () => {
   // Date state handler
   function setDateState(date:DateType) {
     setDate(date);
+  }
+
+  // People state handler
+  function setPeopleState(people:number) {
+    setPeople(people);
   }
 
   function visControl(stage:string) {
@@ -45,10 +51,10 @@ const App = () => {
           <BookDate setDateState={setDateState} loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(true);}}/>
         }
         {stage == "people" &&
-          <People loadTime={() => {setStage("time"); setLastStage("people")}}/>
+          <People setPeopleState={setPeopleState} loadTime={() => {setStage("time"); setLastStage("people")}}/>
         }
         {stage == "time" &&
-          <Time setTimeState={setTimeState} loadForm={() => setStage("form")}/>
+          <Time setTimeState={setTimeState} loadForm={() => {setStage("form"); setLastStage("time")}}/>
         }
         {stage == "form" &&
           <Form date={date} time={time} loadSuccess={() => setStage("success")}/>

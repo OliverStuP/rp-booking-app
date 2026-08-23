@@ -1,77 +1,45 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
+import { Text, View, Image, StyleSheet, Dimensions, Button, Pressable } from 'react-native';
 import Example from '../components/Example.tsx';
 import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import memberData from '../assets/members.json';
 
 type PeopleProps = {
+  setPeopleState: (people:number) => void; 
   loadTime: () => void;
 }
 
-export default function People({loadTime}: PeopleProps) {
+export default function People({setPeopleState, loadTime}: PeopleProps) {
+  const [count, setCount] = React.useState(1);
+
+  function countControl(count: number) {
+    if (count == 1) {
+      setCount(1);
+    }
+    else {
+      setCount(count-1)
+    }
+  }
+
+  // Store people and load next stage
+    function handlePeople(people:number) {
+      setPeopleState(people);
+      loadTime();
+    }
+
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
-          <Text>Time slot</Text>
           <View tabIndex={0} style={styles.aboutSection}>
             <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
+              <Text style={styles.subHeadText}>Number of people</Text>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
+              <Pressable onPress={() => {countControl(count)}}>-</Pressable>
+              <Text style={styles.subHeadText}>{count}</Text>
+              <Pressable onPress={() => {setCount(count+1)}}>+</Pressable>
               <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
-              </View>
-            </View>
-          </View>
-          <View tabIndex={0} style={styles.aboutSection}>
-            <View tabIndex={0} style={styles.subHeading}>
-              <Text style={styles.subHeadText}>Lunch</Text>
-            </View>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='11:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:30' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='12:45' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:00' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:15' onPress={() => {}}></Button>
-              </View>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='13:30' onPress={() => {}}></Button>
+                <Button color='#355872' title='Continue' onPress={() => {handlePeople(count)}}></Button>
               </View>
             </View>
           </View>
