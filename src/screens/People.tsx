@@ -1,9 +1,6 @@
 import React, {useEffect} from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button, Pressable } from 'react-native';
-import Example from '../components/Example.tsx';
-import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
-import memberData from '../assets/members.json';
 
 type PeopleProps = {
   setPeopleState: (people:number) => void; 

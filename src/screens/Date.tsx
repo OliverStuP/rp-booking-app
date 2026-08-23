@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
-import Example from '../components/Example.tsx';
-import Member from '../components/Member.tsx';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
-import memberData from '../assets/members.json';
 import DateTimePicker, { DateType } from 'react-native-ui-datepicker';
 
 type DateProps = {
