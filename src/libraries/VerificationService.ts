@@ -4,9 +4,13 @@ import { DateType } from 'react-native-ui-datepicker';
 const apibase = "/";
 
 // Verify submission
-export async function verify(date:DateType, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
+export async function verify(date:DateType, people: number, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
     if (date == undefined) {
         alert("Invalid date.");
+        return;
+    }
+    if (people == undefined) {
+        alert("Invalid number of people.");
         return;
     }
     if (time == "") {
@@ -32,6 +36,7 @@ export async function verify(date:DateType, time:string, email:string, selectedt
         },
         body: JSON.stringify({
             "date":date,
+            "people": people,
             "time":time,
             "email":email,
             "title":selectedtitle,

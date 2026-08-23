@@ -13,12 +13,21 @@ type PeopleProps = {
 export default function People({setPeopleState, loadTime}: PeopleProps) {
   const [count, setCount] = React.useState(1);
 
-  function countControl(count: number) {
+  function minControl(count: number) {
     if (count == 1) {
       setCount(1);
     }
     else {
       setCount(count-1)
+    }
+  }
+
+  function maxControl(count: number) {
+    if (count == 100) {
+      setCount(100);
+    }
+    else {
+      setCount(count+1)
     }
   }
 
@@ -35,9 +44,9 @@ export default function People({setPeopleState, loadTime}: PeopleProps) {
               <Text style={styles.subHeadText}>Number of people</Text>
             </View>
             <View tabIndex={0} style={styles.detailsSubsection}>
-              <Pressable onPress={() => {countControl(count)}}>-</Pressable>
+              <Pressable onPress={() => {minControl(count)}}>-</Pressable>
               <Text style={styles.subHeadText}>{count}</Text>
-              <Pressable onPress={() => {setCount(count+1)}}>+</Pressable>
+              <Pressable onPress={() => {maxControl(count)}}>+</Pressable>
               <View tabIndex={0} style={styles.button}>
                 <Button color='#355872' title='Continue' onPress={() => {handlePeople(count)}}></Button>
               </View>

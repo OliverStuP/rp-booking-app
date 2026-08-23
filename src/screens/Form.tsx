@@ -14,7 +14,7 @@ type FormProps = {
 }
 
 
-export default function Form({date, time, loadSuccess}: FormProps) {
+export default function Form({date, people, time, loadSuccess}: FormProps) {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState<string>();
   const [firstname, setFirstName] = useState<string>();
@@ -38,7 +38,7 @@ export default function Form({date, time, loadSuccess}: FormProps) {
       alert("Phone number is invalid.");
       return;
     }
-    verify(date, time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
+    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
   }
 
   return (
