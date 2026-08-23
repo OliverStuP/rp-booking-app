@@ -55,13 +55,13 @@ const App = () => {
           <BookDate setDateState={setDateState} loadPeople={() => {setStage("people"); setLastStage("date"); setReturnVis(true);}}/>
         }
         {stage == "people" &&
-          <People setPeopleState={setPeopleState} loadTime={() => {setStage("time"); setLastStage("people")}}/>
+          <People setPeopleState={setPeopleState} handleStage={prevStageHandle} loadTime={() => {setStage("time"); setLastStage("people")}}/>
         }
         {stage == "time" &&
           <Time setTimeState={setTimeState} loadForm={() => {setStage("form"); setLastStage("time")}}/>
         }
         {stage == "form" &&
-          <Form date={date} time={time} loadSuccess={() => setStage("success")}/>
+          <Form date={date} people={people} time={time} loadSuccess={() => setStage("success")}/>
         }
         {stage == "success" &&
           <Success loadDate={() => setStage("date")}/>
