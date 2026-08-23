@@ -11,13 +11,14 @@ type FormProps = {
   date: DateType;
   people: number;
   time: string;
+  formHandler: (name:string, email:string, phone:string) => void;
   loadSuccess: () => void;
 }
 
 
-export default function Form({date, people, time, loadSuccess}: FormProps) {
+export default function Form({date, people, time, formHandler, loadSuccess}: FormProps) {
   // Initialise state
-  const [selectedTitle, setSelectedTitle] = useState<string>("mr");
+  const [selectedTitle, setSelectedTitle] = useState<string>("Mr");
   const [firstname, setFirstName] = useState<string>();
   const [lastname, setLastName] = useState<string>();
   const [email, setEmail] = useState<string>();
@@ -39,7 +40,7 @@ export default function Form({date, people, time, loadSuccess}: FormProps) {
       alert("Phone number is invalid.");
       return;
     }
-    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, loadSuccess);
+    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, formHandler, loadSuccess);
   }
 
   return (
@@ -56,9 +57,9 @@ export default function Form({date, people, time, loadSuccess}: FormProps) {
                 onValueChange={(itemValue) =>
                   setSelectedTitle(itemValue)
                 }>
-                <Picker.Item label="Mr" value="mr" />
-                <Picker.Item label="Ms" value="ms" />
-                <Picker.Item label="Mx" value="mx" />
+                <Picker.Item label="Mr" value="Mr" />
+                <Picker.Item label="Ms" value="Ms" />
+                <Picker.Item label="Mx" value="Mx" />
               </Picker>
             </View>
             <View tabIndex={0}>

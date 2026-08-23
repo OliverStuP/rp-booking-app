@@ -4,7 +4,7 @@ import { DateType } from 'react-native-ui-datepicker';
 const apibase = "/";
 
 // Verify submission
-export async function verify(date:DateType, people: number, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, loadSuccess:() => void) {
+export async function verify(date:DateType, people: number, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, formHandler:(name:string, email:string, phone:string) => void, loadSuccess:() => void) {
     if (date == undefined) {
         alert("Invalid date.");
         return;
@@ -50,6 +50,8 @@ export async function verify(date:DateType, people: number, time:string, email:s
         alert(message);
     }
     else {
+        const fullname = selectedtitle + " " + firstname + " " + lastname;
+        formHandler(fullname, email, phone);
         loadSuccess();
     }
 }

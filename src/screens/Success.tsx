@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
+import { DateType } from 'react-native-ui-datepicker';
 
 type SuccessProps = {
   loadDate: () => void;
+  date: DateType;
+  people: number;
+  time: string;
+  name: string;
+  email: string;
+  phone: string;
 }
 
-export default function Success({loadDate}: SuccessProps) { 
+export default function Success({loadDate, date, people, time, name, email, phone}: SuccessProps) { 
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text>Your reservation has been completed.</Text>
+          <View>
+            <Text>Date: {date?.toString()}</Text>
+            <Text>Number of People: {people}</Text>
+            <Text>Time: {time}</Text>
+            <Text>Full Name: {name}</Text>
+            <Text>Email: {email}</Text>
+            <Text>Phone: {phone}</Text>
+          </View>
           <Button color='#355872' title={"Make another reservation"} onPress={loadDate}/>
         </View>
   )

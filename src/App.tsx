@@ -2,7 +2,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Dimensions, ScrollView, View, Text } from 'react-native';
 import SPBHeader from './components/SPBHeader.tsx';
-import RPFooter from './components/RPFooter.tsx';
 import Time from './screens/Time.tsx';
 import BookDate from './screens/Date.tsx';
 import People from './screens/People.tsx';
@@ -18,6 +17,9 @@ const App = () => {
   const [time, setTime] = React.useState("");
   const [date, setDate] = React.useState<DateType>();
   const [people, setPeople] = React.useState(1);
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
 
   // Time state handler
   function setTimeState(time:string) {
@@ -47,6 +49,12 @@ const App = () => {
     setLastStage(stage);
   }
 
+  function formHandler(name:string, email:string, phone:string) {
+    setName(name);
+    setEmail(email);
+    setPhone(phone);
+  }
+
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
       <SPBHeader dest={() => {visControl(lastStage); setStage(lastStage)}} buttonCheck={returnVis} />
@@ -61,10 +69,10 @@ const App = () => {
           <Time setTimeState={setTimeState} handleStage={prevStageHandle} loadForm={() => {setStage("form"); setLastStage("time")}}/>
         }
         {stage == "form" &&
-          <Form date={date} people={people} time={time} loadSuccess={() => {setStage("success"); setReturnVis(false);}}/>
+          <Form date={date} people={people} time={time} formHandler={formHandler} loadSuccess={() => {setStage("success"); setReturnVis(false);}}/>
         }
         {stage == "success" &&
-          <Success loadDate={() => setStage("date")}/>
+          <Success date={date} people={people} time={time} name={name} email={email} phone={phone} loadDate={() => setStage("date")}/>
         }
       </ScrollView>
     </SafeAreaView>
