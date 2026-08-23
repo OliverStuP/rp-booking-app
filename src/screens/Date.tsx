@@ -27,6 +27,7 @@ export default function BookDate({setDateState, loadPeople}: DateProps) {
             <DateTimePicker
               mode="single"
               date={selected}
+              timePicker={false}
               onChange={({ date }) =>  {setSelected(date); handleDate(date);}}
               minDate={today}
               styles={{
