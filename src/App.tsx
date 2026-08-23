@@ -67,7 +67,6 @@ const App = () => {
           <Success loadDate={() => setStage("date")}/>
         }
       </ScrollView>
-      <RPFooter homePress={() => setStage("landing")} contactPress={() => setStage("contact")} aboutPress={() => setStage("about")} />
     </SafeAreaView>
   );
 }
