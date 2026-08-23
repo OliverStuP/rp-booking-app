@@ -43,6 +43,10 @@ const App = () => {
     }
   }
 
+  function prevStageHandle(stage:string) {
+    setLastStage(stage);
+  }
+
   return (
     <SafeAreaView tabIndex={0} role='main' style={styles.container}>
       <SPBHeader dest={() => {visControl(lastStage); setStage(lastStage)}} buttonCheck={returnVis} />

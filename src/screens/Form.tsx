@@ -9,6 +9,7 @@ import { DateType } from 'react-native-ui-datepicker';
 
 type FormProps = {
   date: DateType;
+  people: number;
   time: string;
   loadSuccess: () => void;
 }
