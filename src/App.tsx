@@ -58,7 +58,7 @@ const App = () => {
           <People setPeopleState={setPeopleState} handleStage={prevStageHandle} loadTime={() => {setStage("time"); setLastStage("people")}}/>
         }
         {stage == "time" &&
-          <Time setTimeState={setTimeState} loadForm={() => {setStage("form"); setLastStage("time")}}/>
+          <Time setTimeState={setTimeState} handleStage={prevStageHandle} loadForm={() => {setStage("form"); setLastStage("time")}}/>
         }
         {stage == "form" &&
           <Form date={date} people={people} time={time} loadSuccess={() => setStage("success")}/>

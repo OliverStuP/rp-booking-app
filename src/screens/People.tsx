@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Button, Pressable } from 'react-native';
 import Example from '../components/Example.tsx';
 import Member from '../components/Member.tsx';
@@ -7,11 +7,16 @@ import memberData from '../assets/members.json';
 
 type PeopleProps = {
   setPeopleState: (people:number) => void; 
+  handleStage: (stage:string) => void;
   loadTime: () => void;
 }
 
-export default function People({setPeopleState, loadTime}: PeopleProps) {
+export default function People({setPeopleState, handleStage, loadTime}: PeopleProps) {
   const [count, setCount] = React.useState(1);
+
+  useEffect(() => {
+    handleStage("date");
+  });
 
   function minControl(count: number) {
     if (count == 1) {

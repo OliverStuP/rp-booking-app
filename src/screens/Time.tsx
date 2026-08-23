@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions, Button } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 import lunchDate from "../../src/lunch.json"
@@ -5,10 +6,15 @@ import dinnerDate from "../../src/dinner.json"
 
 type TimeProps = {
   setTimeState: (time:string) => void; 
+  handleStage: (stage:string) => void;
   loadForm: () => void;
 }
 
-export default function Time({setTimeState, loadForm}: TimeProps) {
+export default function Time({setTimeState, handleStage, loadForm}: TimeProps) {
+  useEffect(() => {
+      handleStage("people");
+    });
+
   // Store time and load next stage
   function handleTime(time:string) {
     setTimeState(time);
