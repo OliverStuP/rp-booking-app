@@ -17,7 +17,7 @@ type FormProps = {
 
 export default function Form({date, people, time, loadSuccess}: FormProps) {
   // Initialise state
-  const [selectedTitle, setSelectedTitle] = useState<string>();
+  const [selectedTitle, setSelectedTitle] = useState<string>("mr");
   const [firstname, setFirstName] = useState<string>();
   const [lastname, setLastName] = useState<string>();
   const [email, setEmail] = useState<string>();
