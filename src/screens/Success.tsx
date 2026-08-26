@@ -16,8 +16,8 @@ type SuccessProps = {
 export default function Success({loadDate, date, people, time, name, email, phone}: SuccessProps) { 
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
-          <Text>Your reservation has been completed.</Text>
-          <View>
+          <Text style={styles.subHeadText}>Your reservation has been completed.</Text>
+          <View style={styles.aboutSection}>
             <Text>Date: {date?.toString().substring(0, 15)}</Text>
             <Text>Number of People: {people}</Text>
             <Text>Time: {time}</Text>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   aboutSection: {
     flexDirection: 'column',
-    alignItems: 'center',
+    alignSelf: 'center',
     padding: 5,
   },
   subHeading: {
