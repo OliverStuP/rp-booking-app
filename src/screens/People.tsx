@@ -45,13 +45,13 @@ export default function People({setPeopleState, handleStage, loadTime}: PeoplePr
               <Text style={styles.subHeadText}>Number of people</Text>
           </View>
           <View tabIndex={0} style={styles.peopleSection}>
-            <View tabIndex={0} style={styles.detailsSubsection}>
-              <Pressable onPress={() => {minControl(count)}}>-</Pressable>
-              <Text style={styles.subHeadText}>{count}</Text>
-              <Pressable onPress={() => {maxControl(count)}}>+</Pressable>
-              <View tabIndex={0} style={styles.button}>
-                <Button color='#355872' title='Continue' onPress={() => {handlePeople(count)}}></Button>
-              </View>
+            <View tabIndex={0} style={styles.countSubsection}>
+              <Pressable style={styles.operator} onPress={() => {minControl(count)}}>-</Pressable>
+              <Text style={styles.numberDisplayed}>{count}</Text>
+              <Pressable style={styles.operator} onPress={() => {maxControl(count)}}>+</Pressable>
+            </View>
+            <View tabIndex={0} style={styles.button}>
+              <Button color='#355872' title='Continue' onPress={() => {handlePeople(count)}}></Button>
             </View>
           </View>
         </View>
@@ -85,39 +85,29 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 18,
   },
-  text: {
+  numberDisplayed: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    textAlign: 'center',
     color: '#355872',
-    width: ScreenSizes.laptop ? '30%' : (ScreenSizes.tablet ? "50%": (ScreenSizes.mobileM ? "75%" : "100%")),
-    alignSelf: 'center',
+    fontFamily: "Helvetica",
+  },
+  operator: {
+    fontSize: 30,
+    fontWeight: 'bold',
     textAlign: 'center',
     fontFamily: "Helvetica",
-    marginTop: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    width: 25,
   },
-  detailsSubsection: {
+  countSubsection: {
     padding: 10,
     alignItems: 'center',
+    flexDirection: 'row',
   },
   button: {
     width: 100,
-    margin: 10,
+    margin: 3,
   },
-  exampleSection: {
-    flexDirection: 'column',
-    marginBottom: '2%',
-  },
-  exampleList: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  memberSection: {
-    padding: 10,
-    borderBottomColor: 'black',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    alignItems: 'center',
-    margin: 0,
-    position: 'relative',
-  },
-  memberList: {
-    flexDirection: 'column',
-  }
 });

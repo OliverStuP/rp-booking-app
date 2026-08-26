@@ -83,23 +83,4 @@ const styles = StyleSheet.create({
     width: 100,
     margin: 10,
   },
-  exampleSection: {
-    flexDirection: 'column',
-    marginBottom: '2%',
-  },
-  exampleList: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  memberSection: {
-    padding: 10,
-    borderBottomColor: 'black',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    alignItems: 'center',
-    margin: 0,
-    position: 'relative',
-  },
-  memberList: {
-    flexDirection: 'column',
-  }
 });
