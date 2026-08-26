@@ -22,7 +22,7 @@ export default function SPBHeader({dest, buttonCheck}: HeadProps) {
 
 const styles = StyleSheet.create({
   heading: {
-    padding: 10,
+    margin: 10,
     textAlign: 'center',
     flexDirection: 'row',
   },
