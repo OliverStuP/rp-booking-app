@@ -10,11 +10,11 @@ type HeadProps = {
 export default function SPBHeader({dest, buttonCheck}: HeadProps) {
     return (
         <View tabIndex={0} role='banner'>
+            {buttonCheck && 
+                <Pressable style={styles.linkText} onPress={dest}>← Return</Pressable>
+            }
             <header style={styles.heading}>
                <Text style={styles.headText}>Salt and Pepper - Reservation Assistant</Text>
-               {buttonCheck && 
-                <Pressable onPress={dest}>← Return</Pressable>
-               }
             </header>
         </View>
     );
@@ -22,14 +22,20 @@ export default function SPBHeader({dest, buttonCheck}: HeadProps) {
 
 const styles = StyleSheet.create({
   heading: {
-    flex: 1,
     padding: 10,
     textAlign: 'center',
+    flexDirection: 'row',
   },
   headText: {
     fontSize: 48,
     fontWeight: 'bold',
     color: '#355872',
+    fontFamily: "Helvetica",
+  },
+  linkText: {
+    fontSize: 18,
+    marginTop: 10,
+    marginLeft: 10,
     fontFamily: "Helvetica",
   },
 });
