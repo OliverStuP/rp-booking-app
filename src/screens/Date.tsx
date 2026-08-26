@@ -19,8 +19,8 @@ export default function BookDate({setDateState, loadPeople}: DateProps) {
   }
 
   return (
-        <View tabIndex={0} role='region' style={styles.aboutCont}>
-          <View tabIndex={0} style={styles.aboutSection}>
+        <View tabIndex={0} role='region' style={styles.dateCont}>
+          <View tabIndex={0} style={styles.dateSection}>
             <View tabIndex={0} style={styles.subHeading}>
               <Text style={styles.subHeadText}>Choose a day</Text>
             </View>
@@ -43,10 +43,10 @@ export default function BookDate({setDateState, loadPeople}: DateProps) {
 }
 
 const styles = StyleSheet.create({
-  aboutCont: {
+  dateCont: {
     flexDirection: 'column',
   },
-  aboutSection: {
+  dateSection: {
     flexDirection: 'column',
     alignItems: 'center',
     padding: 5,
