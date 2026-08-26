@@ -62,7 +62,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
                 <Picker.Item label="Mx" value="Mx" />
               </Picker>
             </View>
-            <View tabIndex={0}>
+            <View tabIndex={0} style={styles.field}>
               <TextInput
                 aria-label='Given name input'
                 value={firstname}
@@ -70,7 +70,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
                 onChangeText={setFirstName}
               />
             </View>
-            <View tabIndex={0}>
+            <View tabIndex={0} style={styles.field}>
               <TextInput
                 aria-label='Family name input'
                 value={lastname}
@@ -78,7 +78,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
                 onChangeText={setLastName}
               />
             </View>
-            <View tabIndex={0}>
+            <View tabIndex={0} style={styles.field}>
               <TextInput
                 aria-label='Email address input'
                 value={email}
@@ -86,7 +86,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
                 onChangeText={setEmail}
               />
             </View>
-            <View tabIndex={0}>
+            <View tabIndex={0} style={styles.field}>
               <Text>{prefix}</Text>
               <TextInput
                 aria-label='Telephone number input'
