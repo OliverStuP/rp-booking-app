@@ -87,7 +87,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
               />
             </View>
             <View tabIndex={0} style={styles.field}>
-              <Text>{prefix}</Text>
+              <Text style={styles.phonePrefix}>{prefix}</Text>
               <TextInput
                 aria-label='Telephone number input'
                 value={phone}
@@ -95,9 +95,9 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
                 placeholder="Phone*"
               />
             </View>
-          </View>
-          <View tabIndex={0}>
-            <Button color='#355872' title={"Submit"} onPress={check}/>
+            <View tabIndex={0} style={styles.button}>
+              <Button color='#355872' title={"Submit"} onPress={check}/>
+            </View>
           </View>
         </View>
   )
@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
     marginTop: '1%',
     marginBottom: '1%',
     padding: 5,
-    width: 185,
+    width: 200,
+    borderWidth: 1
   },
   subHeading: {
     padding: 5,
@@ -160,6 +161,9 @@ const styles = StyleSheet.create({
   detailsSubsection: {
     padding: 10,
     alignItems: 'center',
+  },
+  phonePrefix: {
+    marginRight: '2%'
   },
   button: {
     width: 100,
