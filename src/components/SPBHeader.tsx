@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, Dimensions, Button } from 'react-native';
+import { Text, View, Image, StyleSheet, Dimensions, Button, Pressable } from 'react-native';
 import * as ScreenSizes from '../libraries/ScreenSizes.ts';
 
 type HeadProps = {
@@ -13,7 +13,7 @@ export default function SPBHeader({dest, buttonCheck}: HeadProps) {
             <header style={styles.heading}>
                <Text style={styles.headText}>Salt and Pepper - Reservation Assistant</Text>
                {buttonCheck && 
-                <Button onPress={dest} title="Return"/>
+                <Pressable onPress={dest}>← Return</Pressable>
                }
             </header>
         </View>
