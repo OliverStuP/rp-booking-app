@@ -31,9 +31,7 @@ export default function BookDate({setDateState, loadPeople}: DateProps) {
               onChange={({ date }) =>  {setSelected(date); handleDate(date);}}
               minDate={today}
               styles={{
-                today: { borderColor: 'blue', borderWidth: 1 },
-                selected: { backgroundColor: 'blue' },
-                selected_label: { color: 'white' },
+                today: { borderColor: '#355872', borderWidth: 2, borderRadius: 10 },
                 disabled: {opacity: 0.5},
               }}
             />
