@@ -18,14 +18,18 @@ export default function Success({loadDate, date, people, time, name, email, phon
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text style={styles.subHeadText}>Your reservation has been completed.</Text>
           <View style={styles.aboutSection}>
-            <Text>Date: {date?.toString().substring(0, 15)}</Text>
-            <Text>Number of People: {people}</Text>
-            <Text>Time: {time}</Text>
-            <Text>Full Name: {name}</Text>
-            <Text>Email: {email}</Text>
-            <Text>Phone: {phone}</Text>
+            <View style={styles.detailsSubsection}>
+              <Text style={styles.text}>Date: {date?.toString().substring(0, 15)}</Text>
+              <Text style={styles.text}>Number of People: {people}</Text>
+              <Text style={styles.text}>Time: {time}</Text>
+              <Text style={styles.text}>Full Name: {name}</Text>
+              <Text style={styles.text}>Email: {email}</Text>
+              <Text style={styles.text}>Phone: {phone}</Text>
+            </View>
+            <View style={styles.button}>
+              <Button color='#355872' title={"Make another reservation"} onPress={loadDate}/>
+            </View>
           </View>
-          <Button color='#355872' title={"Make another reservation"} onPress={loadDate}/>
         </View>
   )
 }
@@ -58,19 +62,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   text: {
-    color: '#355872',
-    width: ScreenSizes.laptop ? '30%' : (ScreenSizes.tablet ? "50%": (ScreenSizes.mobileM ? "75%" : "100%")),
-    alignSelf: 'center',
-    textAlign: 'center',
     fontFamily: "Helvetica",
     marginTop: 5,
+    marginBottom: 5,
   },
   detailsSubsection: {
     padding: 10,
-    alignItems: 'center',
+    alignSelf: 'center',
   },
   button: {
-    width: 100,
+    width: 250,
     margin: 10,
   },
   exampleSection: {
