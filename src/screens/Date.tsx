@@ -20,10 +20,10 @@ export default function BookDate({setDateState, loadPeople}: DateProps) {
 
   return (
         <View tabIndex={0} role='region' style={styles.dateCont}>
-          <View tabIndex={0} style={styles.dateSection}>
-            <View tabIndex={0} style={styles.subHeading}>
+          <View tabIndex={0} style={styles.subHeading}>
               <Text style={styles.subHeadText}>Choose a day</Text>
-            </View>
+          </View>
+          <View tabIndex={0} style={styles.dateSection}>
             <DateTimePicker
               mode="single"
               date={selected}

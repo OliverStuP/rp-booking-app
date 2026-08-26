@@ -41,10 +41,10 @@ export default function People({setPeopleState, handleStage, loadTime}: PeoplePr
 
   return (
         <View tabIndex={0} role='region' style={styles.peopleCont}>
-          <View tabIndex={0} style={styles.peopleSection}>
-            <View tabIndex={0} style={styles.subHeading}>
+          <View tabIndex={0} style={styles.subHeading}>
               <Text style={styles.subHeadText}>Number of people</Text>
-            </View>
+          </View>
+          <View tabIndex={0} style={styles.peopleSection}>
             <View tabIndex={0} style={styles.detailsSubsection}>
               <Pressable onPress={() => {minControl(count)}}>-</Pressable>
               <Text style={styles.subHeadText}>{count}</Text>
