@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   subHeadText: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#355872',
