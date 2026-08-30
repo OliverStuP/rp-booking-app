@@ -25,6 +25,9 @@ export default function People({setPeopleState, handleStage, loadTime}: PeoplePr
       setCount(count-1);
       if (count-1 == 1) {
         setChildCount(0);
+        if (disabledCount > 1) {
+          setDisabledCount(1);
+        }
       }
     }
   }
