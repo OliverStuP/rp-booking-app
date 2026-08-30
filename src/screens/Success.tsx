@@ -7,24 +7,28 @@ type SuccessProps = {
   loadDate: () => void;
   date: DateType;
   people: number;
+  children: number;
+  disabled: number;
   time: string;
   name: string;
   email: string;
   phone: string;
 }
 
-export default function Success({loadDate, date, people, time, name, email, phone}: SuccessProps) { 
+export default function Success({loadDate, date, people, children, disabled, time, name, email, phone}: SuccessProps) { 
   return (
         <View tabIndex={0} role='region' style={styles.aboutCont}>
           <Text style={styles.subHeadText}>Your reservation has been completed.</Text>
           <View style={styles.aboutSection}>
             <View style={styles.detailsSubsection}>
               <Text style={styles.text}>Date: {date?.toString().substring(0, 15)}</Text>
-              <Text style={styles.text}>Number of People: {people}</Text>
               <Text style={styles.text}>Time: {time}</Text>
               <Text style={styles.text}>Full Name: {name}</Text>
               <Text style={styles.text}>Email: {email}</Text>
               <Text style={styles.text}>Phone: {phone}</Text>
+              <Text style={styles.text}>Number of people: {people}</Text>
+              <Text style={styles.text}>Number of children: {children}</Text>
+              <Text style={styles.text}>Number of people with disabilities: {disabled}</Text>
             </View>
             <View style={styles.button}>
               <Button color='#355872' title={"Make another reservation"} onPress={loadDate}/>

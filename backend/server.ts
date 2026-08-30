@@ -17,7 +17,10 @@ app.post(base + "submit", (req, res) => {
     "Last Name": req.body.lastname,
     "Date": req.body.date,
     "Time": req.body.time,
-    "Phone Number": req.body.phone
+    "Phone Number": req.body.phone,
+    "Number of people": req.body.people,
+    "Number of children": req.body.children,
+    "Number of disabilities": req.body.disabilities,
   });
   const message = "{\"status\" : \"success\", \"message\" : \"Booking successful.\"}";
   res.send(message);
