@@ -17,6 +17,8 @@ const App = () => {
   const [time, setTime] = React.useState("");
   const [date, setDate] = React.useState<DateType>();
   const [people, setPeople] = React.useState(1);
+  const [children, setChildren] = React.useState(0);
+  const [disabled, setDisabled] = React.useState(0);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
@@ -32,8 +34,10 @@ const App = () => {
   }
 
   // People state handler
-  function setPeopleState(people:number) {
+  function setPeopleState(people:number, children:number, disabled:number) {
     setPeople(people);
+    setChildren(children);
+    setDisabled(disabled);
   }
 
   function visControl(stage:string) {
@@ -72,7 +76,7 @@ const App = () => {
           <Form date={date} people={people} time={time} formHandler={formHandler} loadSuccess={() => {setStage("success"); setReturnVis(false);}}/>
         }
         {stage == "success" &&
-          <Success date={date} people={people} time={time} name={name} email={email} phone={phone} loadDate={() => setStage("date")}/>
+          <Success date={date} people={people} children={children} disabled={disabled} time={time} name={name} email={email} phone={phone} loadDate={() => setStage("date")}/>
         }
       </ScrollView>
     </SafeAreaView>
