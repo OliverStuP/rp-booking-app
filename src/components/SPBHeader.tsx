@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   headText: {
-    fontSize: 48,
+    fontSize: 36,
     fontWeight: 'bold',
     color: '#355872',
     fontFamily: "Helvetica",
