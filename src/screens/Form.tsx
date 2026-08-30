@@ -11,12 +11,14 @@ type FormProps = {
   date: DateType;
   people: number;
   time: string;
+  childCount: number;
+  disabledCount: number;
   formHandler: (name:string, email:string, phone:string) => void;
   loadSuccess: () => void;
 }
 
 
-export default function Form({date, people, time, formHandler, loadSuccess}: FormProps) {
+export default function Form({date, people, time, childCount, disabledCount, formHandler, loadSuccess}: FormProps) {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState<string>("Mr");
   const [firstname, setFirstName] = useState<string>();
@@ -40,7 +42,7 @@ export default function Form({date, people, time, formHandler, loadSuccess}: For
       alert("Phone number is invalid.");
       return;
     }
-    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, formHandler, loadSuccess);
+    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, childCount, disabledCount, formHandler, loadSuccess);
   }
 
   return (

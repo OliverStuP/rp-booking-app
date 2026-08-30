@@ -73,7 +73,7 @@ const App = () => {
           <Time setTimeState={setTimeState} handleStage={prevStageHandle} loadForm={() => {setStage("form"); setLastStage("time")}}/>
         }
         {stage == "form" &&
-          <Form date={date} people={people} time={time} formHandler={formHandler} loadSuccess={() => {setStage("success"); setReturnVis(false);}}/>
+          <Form date={date} people={people} time={time} childCount={children} disabledCount={disabled} formHandler={formHandler} loadSuccess={() => {setStage("success"); setReturnVis(false);}}/>
         }
         {stage == "success" &&
           <Success date={date} people={people} children={children} disabled={disabled} time={time} name={name} email={email} phone={phone} loadDate={() => setStage("date")}/>
