@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   button: {
-    width: 100,
+    width: 75,
     margin: 10,
   },
   exampleSection: {
