@@ -10,15 +10,15 @@ import { DateType } from 'react-native-ui-datepicker';
 type FormProps = {
   date: DateType;
   people: number;
+  children: number;
+  disabled: number;
   time: string;
-  childCount: number;
-  disabledCount: number;
   formHandler: (name:string, email:string, phone:string) => void;
   loadSuccess: () => void;
 }
 
 
-export default function Form({date, people, time, childCount, disabledCount, formHandler, loadSuccess}: FormProps) {
+export default function Form({date, people, children, disabled, time, formHandler, loadSuccess}: FormProps) {
   // Initialise state
   const [selectedTitle, setSelectedTitle] = useState<string>("Mr");
   const [firstname, setFirstName] = useState<string>();
@@ -42,7 +42,7 @@ export default function Form({date, people, time, childCount, disabledCount, for
       alert("Phone number is invalid.");
       return;
     }
-    verify(date, people, time, email, selectedTitle, firstname, lastname, phone, childCount, disabledCount, formHandler, loadSuccess);
+    verify(date, people, children, disabled, time, email, selectedTitle, firstname, lastname, phone, formHandler, loadSuccess);
   }
 
   return (
