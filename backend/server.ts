@@ -2,9 +2,14 @@ import express from 'express';
 
 const app = express();
 const base = "/";
+const cors = require('cors');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+  origin: ['http://localhost:3000/', 'https://rp-booking-app.vercel.app/'],
+  credentials: true,
+}));
 
 // Initialise members
 const bookings:{}[] = [{}];
