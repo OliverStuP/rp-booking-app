@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/cors": "^2.8.19",
     "axios": "^1.13.5",
     "baseline-browser-mapping": "^2.11.4",
     "caniuse-lite": "^1.0.30001806",
