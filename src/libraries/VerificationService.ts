@@ -31,7 +31,6 @@ export async function verify(date:DateType, people: number, children: number, di
     }
     const response = await fetch(apibase + "submit", {
         method: 'POST',
-        mode: "cors",
         headers: {
             'Content-Type': 'application/json'
         },
