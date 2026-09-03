@@ -1,7 +1,7 @@
 import express from 'express';
 
 const app = express();
-const base = "https://rp-booking-app.onrender.com/";
+const base = "/";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
