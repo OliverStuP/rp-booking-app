@@ -1,7 +1,7 @@
 import { DateType } from 'react-native-ui-datepicker';
 
 // Initialise API base
-const apibase = "/";
+const apibase = "https://rp-booking-app.onrender.com/";
 
 // Verify submission
 export async function verify(date:DateType, people: number, children: number, disabled: number, time:string, email:string, selectedtitle:string, firstname:string, lastname:string, phone:string, formHandler:(name:string, email:string, phone:string) => void, loadSuccess:() => void) {
