@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const base = "/";
@@ -10,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 const bookings:{}[] = [{}];
 
 app.post(base + "submit", (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://rp-booking-app.vercel.app/');
   bookings.push({
     "Email": req.body.email,
     "Title": req.body.title,
