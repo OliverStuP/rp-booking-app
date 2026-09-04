@@ -16,7 +16,7 @@ app.use(cors({
 // Initialise members
 const bookings:{}[] = [{}];
 
-app.post(base + "/submit", (req, res) => {
+app.post(base + "submit", (req, res) => {
   bookings.push({
     "Email": req.body.email,
     "Title": req.body.title,
