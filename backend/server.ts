@@ -3,22 +3,11 @@ import cors from 'cors';
 
 const app = express();
 const base = "/";
-const origins = [
-  'https://rp-booking-app.vercel.app', 'http://localhost:3000/',
-];
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) {
-      return callback(null, true);
-    }
-    if (origins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error("Origin not permitted"));
-  },
+  origin: 'https://rp-booking-app.vercel.app',
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
