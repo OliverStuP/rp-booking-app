@@ -6,7 +6,10 @@ const base = "/";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({origin: 'https://rp-booking-app.vercel.app/'}));
+app.use(cors({
+  origin: 'https://rp-booking-app.vercel.app/',
+  methods: ["GET", "POST"],
+}));
 
 // Initialise members
 const bookings:{}[] = [{}];
