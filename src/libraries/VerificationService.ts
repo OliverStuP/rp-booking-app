@@ -29,7 +29,7 @@ export async function verify(date:DateType, people: number, children: number, di
         alert("Invalid phone.");
         return;
     }
-    const response = await fetch(apibase + "submit", {
+    const response = await fetch(apibase + "/submit", {
         method: 'POST',
         mode: "cors",
         headers: {
